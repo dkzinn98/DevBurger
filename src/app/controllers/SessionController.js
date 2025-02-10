@@ -9,14 +9,23 @@ class SessionController {
         });
 
         const isValid = await schema.isValid(req.body);
-        
-        if (!isValid) {
-            return res.status(401).json({ error: 'Make a sure your email or password are correct' });
+
+        const emailOrPasswordIncorrect = () => {
+            res
+                .status(401)
+                .json({ error: 'Make sure your email or password are correct' })
+
         }
-        
-        
-        const {email, password} = req.body;
-        
+
+
+        if (!isValid) {
+        return emailOrPasswordIncorrect();
+
+        }
+
+
+        const { email, password } = req.body;
+
         const user = await User.findOne({
             where: {
                 email
@@ -24,23 +33,22 @@ class SessionController {
         });
 
         if (!user) { // se o meu usuario n existe, eu retorno o erro abaixo do json
-            return res
-                .status(401)
-                .json({ error: 'Make sure your email or password are correct'})
+            return emailOrPasswordIncorrect();
         }
 
 
-        const isSamePassword = await user.comparePassword(password);
+        const isSamePassword = await user.checkPassword(password);
 
         if (!isSamePassword) {
-            return res
-            .status(401)
-            .json({ error: 'Make sure yout email or password are correct' })
+            return emailOrPasswordIncorrect();
         }
 
-        console.log(isSamePassword)
-
-        return res.json({ message: 'session' });
+        return res.status(201).json({
+            id: user.id,
+            name: user.name,
+            email,
+            admin: user.admin
+        });
     }
 }
 
