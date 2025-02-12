@@ -5,7 +5,6 @@ class Product extends Model {
         super.init({
             name: DataTypes.STRING,  // Correção: use DataTypes.STRING
             price: DataTypes.INTEGER,
-            category: DataTypes.STRING,
             path: DataTypes.STRING,
             url: {
                 type: Sequelize.VIRTUAL,
@@ -17,6 +16,15 @@ class Product extends Model {
         {
             sequelize,  // Corrigido: passar a instância do Sequelize
             modelName: 'Product'  // Opcional, mas recomendado
+        });
+
+        return this;
+    }
+
+    static associate(models) {
+        this.belongsTo(models.Category, {
+            foreignKey: 'category_id',
+            as: 'category'
         });
     }
 }

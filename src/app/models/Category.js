@@ -9,6 +9,9 @@ class Category extends Model {
             sequelize,  // Corrigido: passar a instância do Sequelize
             modelName: 'Category'  // Opcional, mas recomendado
         });
+
+        return this;
+        
     }
 }
 
