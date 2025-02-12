@@ -1,6 +1,7 @@
 
 import express from 'express'
 import routes from './routes.js'
+import { resolve } from 'node:path';
 import './database'; // não dei um nome pq não irei utilizar aqui dentro deste código, esse import é apenas para estanciar a class database e fazer a conexão e config necessária
 
 class App {
@@ -13,6 +14,7 @@ class App {
 
     middlewares() {
         this.app.use(express.json());
+        this.app.use('/product-file', express.static(resolve(__dirname, '..', 'uploads')));
     }
 
 
