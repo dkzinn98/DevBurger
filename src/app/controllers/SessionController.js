@@ -1,5 +1,7 @@
 import * as Yup from 'yup';
 import User from '../models/User';
+import  jwt from 'jsonwebtoken'
+import authConfig from '../../config/auth.js'
 
 class SessionController {
     async store(req, res) { // req = request | res = response
@@ -47,7 +49,10 @@ class SessionController {
             id: user.id,
             name: user.name,
             email,
-            admin: user.admin
+            admin: user.admin,
+            token: jwt.sign({ id: user.id }, authConfig.secret , { // gerando token de login do user
+                expiresIn: authConfig.expiresIn // a pessoa pode ficar 1 dia inteiro sem precisar realizar log-in novamente | essa config to puxando do auth.js
+            })
         });
     }
 }
