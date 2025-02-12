@@ -51,3 +51,9 @@ module.exports = {
 
   }
 };
+
+/**
+ * 1:1 = 1 registro em 1 tabela só pode ser relacionado com outro registro em outra tabela. Por ex: "MATRÍCULA"
+ * 1:N = 1 produto só pode ter 1 categoria, mas 1 categoria pode ter vários produtos
+ * N:N = 1 Usuário pode ter vários cursos em uma faculdade, e o curso pode ter vários usuários
+ */
