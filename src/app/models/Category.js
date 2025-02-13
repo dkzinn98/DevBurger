@@ -1,18 +1,19 @@
-import { Model, DataTypes } from "sequelize";
+import Sequelize, { Model } from 'sequelize'
 
 class Category extends Model {
-    static init(sequelize) {
-        super.init({
-            name: DataTypes.STRING,  // Correção: use DataTypes.STRING
-        }, 
-        {
-            sequelize,  // Corrigido: passar a instância do Sequelize
-            modelName: 'Category'  // Opcional, mas recomendado
-        });
+  static init(sequelize) {
+    super.init(
+      {
+        name: Sequelize.STRING,
 
-        return this;
-        
-    }
+      },
+      {
+        sequelize,
+      },
+    )
+    return this
+  }
+
 }
 
-export default Category;
+export default Category
