@@ -1,7 +1,10 @@
+import mongoose from "mongoose";
 import * as Yup from 'yup';
 import Product from '../models/Product.js'
 import Category from '../models/Category.js'
 import Order from '../../../schemas/Order.js'
+import User from '../models/User.js'
+
 
 
 class OrderController {
@@ -45,9 +48,9 @@ class OrderController {
             const productIndex = products.findIndex((item) => item.id === product.id);
             
             const newProduct = {
-                id: product.id,
+                id: String(product.id),
                 name: product.name,
-                category: product.category.name,
+                category: product.category ? product.category.name : 'Sem categoria',
                 price: product.price,
                 url: product.url,
                 quantity: products[productIndex].quantity
@@ -76,6 +79,40 @@ class OrderController {
 
         return res.json(orders);
     }
+
+    async update(req, res) {
+        const schema = Yup.object({
+            status: Yup.string().required()
+        });
+
+
+        try {
+            schema.validateSync(req.body, { abortEarly: false });
+        } catch (err) {
+            return res.status(400).json({ error: err.errors });
+        }
+
+
+        const { admin: isAdmin } = await User.findByPk(req.userId);
+
+        if (!isAdmin) {
+            return res.status(401).json();
+        }
+
+
+        const { id } = req.params;
+        const { status } = req.body;
+
+        if (!mongoose.Types.ObjectId.isValid(id)){
+            return res.status(400).json({ error: 'ID inválido!' });
+        } // aqui eu impeço que o código quebre caso busque um ID inexistente!
+
+        await Order.updateOne({ _id: new mongoose.Types.ObjectId(id) }, { status });
+
+        return res.json({ message: 'Status updated sucessfully' });
+
+    }
+    
 }
 
 export default new OrderController();

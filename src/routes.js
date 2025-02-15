@@ -12,7 +12,7 @@ import OrderController from './app/controllers/OrderController.js';
 const routes = new Router();
 const upload = multer(multerConfig);
 
-// .store para POST || .index para GET
+// .store para POST || .index para GET || update para PUT
 
 routes.post('/users', UserController.store);
 routes.post('/session', SessionController.store);
@@ -21,12 +21,15 @@ routes.use(authMiddleware); // passando o authMiddleware para todas as rotas que
 
 routes.post('/products', upload.single('file'), ProductController.store);
 routes.get('/products', ProductController.index);
+routes.put('/products/:id', upload.single('file'), ProductController.update);
+
 
 routes.post('/categories', CategoryController.store);
 routes.get('/categories', CategoryController.index);
 
 routes.post('/orders', OrderController.store);
 routes.get('/orders', OrderController.index);
+routes.put('/orders/:id', OrderController.update); // após o / devo por :id pois será filtrado pelo id
 
 
 export default routes 
