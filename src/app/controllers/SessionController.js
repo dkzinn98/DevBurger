@@ -50,7 +50,7 @@ class SessionController {
             name: user.name,
             email,
             admin: user.admin,
-            token: jwt.sign({ id: user.id }, authConfig.secret , { // gerando token de login do user
+            token: jwt.sign({ id: user.id, name: user.name }, authConfig.secret , { // gerando token de login do user
                 expiresIn: authConfig.expiresIn // a pessoa pode ficar 1 dia inteiro sem precisar realizar log-in novamente | essa config to puxando do auth.js
             })
         });
