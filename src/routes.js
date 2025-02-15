@@ -12,6 +12,8 @@ import OrderController from './app/controllers/OrderController.js';
 const routes = new Router();
 const upload = multer(multerConfig);
 
+// .store para POST || .index para GET
+
 routes.post('/users', UserController.store);
 routes.post('/session', SessionController.store);
 
@@ -24,6 +26,7 @@ routes.post('/categories', CategoryController.store);
 routes.get('/categories', CategoryController.index);
 
 routes.post('/orders', OrderController.store);
+routes.get('/orders', OrderController.index);
 
 
 export default routes 
