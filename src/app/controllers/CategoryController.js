@@ -1,6 +1,7 @@
 import Category from '../models/Category.js';
 import * as Yup from 'yup';
 import User from '../models/User.js'
+import { request } from 'express';
 
 class CategoryController {
     async store(req, res) {
@@ -20,6 +21,7 @@ class CategoryController {
             return res.status(401).json();
         }
 
+        const { filename: path } = request.file;
         const { name } = req.body;
 
         const categoryExists = await Category.findOne({
@@ -33,7 +35,8 @@ class CategoryController {
         }
 
         const { id } = await Category.create({
-            name
+            name,
+            path
         });
 
         return res.status(201).json({ id, name });
