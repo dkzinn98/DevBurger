@@ -2,7 +2,7 @@
 
 🚧 **Status:** Backend Finalizado ✅ | Frontend em Desenvolvimento 🚀  
 
-## 📖 Sobre o Projeto  
+## 📖 Sobre o Projeto   
 O **DevBurger** é um sistema de pedidos online desenvolvido para gerenciar produtos, categorias e pedidos de forma eficiente. O backend foi implementado utilizando **Node.js** com autenticação via **JWT**, integração com **MongoDB** e **PostgreSQL**, e funcionalidades como controle de usuários, status de pedidos e validações.  
 
 Agora, o próximo passo é desenvolver o **frontend em React**, tornando a experiência do usuário mais intuitiva e moderna.  
