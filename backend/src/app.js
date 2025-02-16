@@ -2,7 +2,7 @@
 import express from 'express'
 import routes from './routes.js'
 import { resolve } from 'node:path';
-import './database'; // não dei um nome pq não irei utilizar aqui dentro deste código, esse import é apenas para estanciar a class database e fazer a conexão e config necessária
+import './database/index.js'; // não dei um nome pq não irei utilizar aqui dentro deste código, esse import é apenas para estanciar a class database e fazer a conexão e config necessária
 
 class App {
     constructor() {
