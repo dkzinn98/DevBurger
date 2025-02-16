@@ -1,7 +1,6 @@
 import Category from '../models/Category.js';
 import * as Yup from 'yup';
 import User from '../models/User.js'
-import { request } from 'express';
 
 class CategoryController {
     async store(req, res) {
