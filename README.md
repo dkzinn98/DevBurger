@@ -66,6 +66,6 @@ O servidor estará rodando em **http://localhost:3000** 🚀
 - [ ] Testes e ajustes finais  
 
 ## 🤝 Contribuição  
-Sinta-se à vontade para abrir issues e pull requests! Qualquer feedback é bem-vindo.  
+Projeto ainda não se encontra aberto para issues e pull requests!
 
 📢 **Fique ligado para as próximas atualizações!** 🚀🔥  
