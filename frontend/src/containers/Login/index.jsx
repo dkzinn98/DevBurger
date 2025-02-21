@@ -4,8 +4,8 @@ import * as yup from "yup";
 import { toast } from 'react-toastify'
 import { api } from '../../services/api.js'
 
-
 import Logo from '../../assets/logo-devburger-login.svg';
+
 import { 
     Container,
     Form,
@@ -33,7 +33,7 @@ export function Login(){
       
       const onSubmit = async (data) => {
         const response = await toast.promise(
-            api.post('/session', {
+            api.post('/sessions', {
                 email: data.email,
                 password: data.password
         }),
@@ -74,7 +74,7 @@ export function Login(){
                     </InputContainer>
                     <Button type="submit">Entrar</Button>
                 </Form>
-                <p>Não possui conta? <a href='./register'>Clique aqui!</a>
+                <p>Não possui conta? <a href='./cadastro'>Clique aqui!</a>
                 </p>
             </RightContainer>
         </Container>
