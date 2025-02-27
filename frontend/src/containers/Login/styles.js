@@ -27,7 +27,7 @@ export const LeftContainer = styled.div`
     justify-content: center;
 
     img {
-        width: 80%;
+        width: 65%;
     }
 `;
 
@@ -43,6 +43,7 @@ export const RightContainer = styled.div`
 
     background: url('${RightBackgroundLogin}');
     background-color: #1e1e1e ;
+    background-size: cover;
 
 
     p {

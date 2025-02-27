@@ -5,7 +5,7 @@ import OrderController from "./app/controllers/OrderController.js";
 import ProductController from "./app/controllers/ProductController.js";
 import SessionController from "./app/controllers/SessionController.js";
 import UserController from "./app/controllers/UserController.js";
-import authMiddleware from "./app/middlewares/auth.js";
+
 import multerConfig from "./config/multer.js";
 
 const routes = new Router();
@@ -15,6 +15,7 @@ const upload = multer(multerConfig);
 
 routes.post("/users", UserController.store);
 routes.post("/sessions", SessionController.store);
+import authMiddleware from "./app/middlewares/auth.js";
 
 routes.use(authMiddleware); // passando o authMiddleware para todas as rotas que tiver abaixo!
 
