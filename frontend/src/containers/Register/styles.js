@@ -1,3 +1,4 @@
+import { Link as ReactLink } from "react-router-dom";
 import styled from "styled-components";
 import LeftBackgroundLogin from "../../assets/left-background-login.svg";
 import RightBackgroundLogin from "../../assets/right-background-login.svg";
@@ -111,4 +112,9 @@ export const InputContainer = styled.div`
         height: 10px;
     }
 
+`;
+
+export const Link = styled(ReactLink)`
+    text-decoration: none;
+    color: white;
 `;
