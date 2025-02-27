@@ -111,7 +111,7 @@ export function Login() {
 					<Button type="submit">Entrar</Button>
 				</Form>
 				<p>
-					Não possui conta? <Link to="./cadastro">Clique aqui!</Link>
+					Não possui conta? <Link to="/cadastro">Clique aqui!</Link>
 				</p>
 			</RightContainer>
 		</Container>
