@@ -37,7 +37,7 @@ Agora, o próximo passo é desenvolver o **frontend em React**, tornando a exper
 ✔ Validação de usuário administrador  
 
 ### 🔄 Frontend (Em Desenvolvimento)  
-🚀 Tela de login e cadastro  
+✔ Tela de login e cadastro  
 🚀 Página de listagem de produtos  
 🚀 Sistema de pedidos e carrinho  
 🚀 Dashboard de administração  
