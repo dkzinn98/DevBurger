@@ -51,26 +51,24 @@ export function Register() {
 
 	const onSubmit = async (data) => {
 		try {
-			const { status } = await api.post("/users");
-			api.post(
+			const response = await api.post(
 				"/users",
 				{
 					name: data.name,
 					email: data.email,
 					password: data.password,
 				},
-
 				{
 					validateStatus: () => true,
 				},
 			);
 
-			if (status === 200 || status === 201) {
+			if (response.status === 200 || response.status === 201) {
+				toast.success("Conta criada com sucesso!");
 				setTimeout(() => {
 					navigate("/login");
 				}, 2000);
-				toast.success("Conta criada com sucesso");
-			} else if (status === 409) {
+			} else if (response.status === 409) {
 				toast.error("Email já cadastrado! Faça o login para continuar!");
 			} else {
 				throw new Error();
@@ -135,7 +133,7 @@ export function Register() {
 					<Button type="submit">Cadastrar</Button>
 				</Form>
 				<p>
-					Já possui conta? <Link to="./login">Clique aqui!</Link>
+					Já possui conta? <Link to="/login">Clique aqui!</Link>
 				</p>
 			</RightContainer>
 		</Container>
