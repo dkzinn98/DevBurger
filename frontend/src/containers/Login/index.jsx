@@ -46,7 +46,9 @@ export function Login() {
 
 	const onSubmit = async (data) => {
 		try {
-			const response = await toast.promise(
+			const {
+				data: { token },
+			} = await toast.promise(
 				api.post("/sessions", {
 					email: data.email,
 					password: data.password,
@@ -65,7 +67,7 @@ export function Login() {
 				},
 			);
 
-			console.log(response);
+			localStorage.setItem("token", token);
 		} catch (error) {
 			// Caso ocorra um erro inesperado, ele será tratado aqui abaixo
 			console.error("Erro ao fazer login:", error);
