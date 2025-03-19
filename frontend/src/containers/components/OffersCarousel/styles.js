@@ -5,7 +5,36 @@ export const Container = styled.div`
         padding-right: 40px;
     }
 
-    padding-left: 30px;
+    overflow-x: hidden;
+
+    .react-multi-carousel-list {
+        overflow: visible;
+    }
+
+    .react-multiple-carousel__arrow--left {
+        left: 15px;
+        top: 80px;
+    
+    }
+
+    .react-multiple-carousel__arrow--right {
+        top: 80px;
+    
+    }
+
+    /* Esconder a barra de rolagem para todos os navegadores */
+    & {
+        -ms-overflow-style: none;  /* Para IE e Edge */
+        scrollbar-width: none;     /* Para Firefox */
+    }
+    
+    /* Esconder a barra de rolagem para Chrome, Safari e Opera */
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    padding-left: 40px;
+    padding-bottom: 45px;
 `;
 
 export const Title = styled.h2`
@@ -27,31 +56,6 @@ export const Title = styled.h2`
         background-color: #61A120;
         left: 50%;
         transform: translateX(-50%);
-
-    }
-`;
-
-export const ContainerItems = styled.div`
-    background: url('${(props) => props.imageUrl}');
-    background-position: center;
-    background-size: cover;
-    border-radius: 20px;
-    margin-top: 30px;
-
-    display: flex;
-    align-items: center;
-    padding: 20px 10px;
-    width: 90%;
-    height: 195px;
-
-    p{
-        color: #ffffff;
-        background-color: rgba(0,0,0, 0.5);
-        padding: 10px 30px;
-        border-radius: 30px;
-        font-size: 17px;
-        font-weight: bold;
-        margin-top: 140px;
 
     }
 `;

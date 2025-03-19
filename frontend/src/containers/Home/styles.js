@@ -41,5 +41,5 @@ export const Container = styled.section`
 `;
 
 export const Content = styled.div`
-    padding-bottom: 70px;
+    /* padding-bottom: 70px; */
 `;

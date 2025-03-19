@@ -2,11 +2,25 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     .carousel-item{
-        padding-right: 40px;
+        padding-right: 20px;
     }
 
-    padding-left: 30px;
+    align-items: center;
+    padding-left: 60px;
     padding-top: 50px; /* Adiciona espaçamento sem mexer no background */
+    cursor: grab;
+
+    .react-multiple-carousel__arrow--left {
+        left: 7px;
+        top: 45px;
+    
+    }
+
+    .react-multiple-carousel__arrow--right {
+        top: 45px;
+        right: 62px;
+    
+    }
 `;
 
 export const Title = styled.h2`
