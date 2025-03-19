@@ -10,7 +10,7 @@ export const ContainerButton = styled.button`
     color: white;
     opacity: 80%;
     transition: transform 0.3s ease-in-out;
-    font-family: "Road Rage", serif;
+    font-family: "Road Rage", sans-serif;
 
 
     &:hover {

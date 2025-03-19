@@ -60,14 +60,14 @@ export const RightContainer = styled.div`
 `;
 
 export const Title = styled.h2`
-    font-family: "Road Rage", serif;
+    font-family: "Road Rage", sans-serif;
     font-size: 40px;
     color: white;
     text-align: center;
     
     span {
         color: #9758A6;
-        font-family: "Road Rage", serif;
+        font-family: "Road Rage", sans-serif;
 
     }
 
