@@ -15,28 +15,34 @@ export default function authMiddleware(req, res, next) {
 	// Extrai o token do cabeçalho
 	const token = authToken.split(" ")[1];
 
-	// ✅ Logs para depuração
-	console.log("Authorization Header:", authToken);
-	console.log("Token:", token);
+	// ✅ Apenas para modo de desenvolvimento
+	if (process.env.NODE_ENV === "development") {
+		console.log(`🟢 Authorization Header: ${authToken}`);
+		console.log(`🟢 Token: ${token}`);
+	}
 
-	// Verifica o token JWT de forma assíncrona usando callback
+	// ✅ Verifica o token JWT de forma assíncrona usando callback
 	jwt.verify(token, authConfig.secret, (err, decoded) => {
-		// ✅ Tratamento específico para token expirado
 		if (err) {
 			if (err.name === "TokenExpiredError") {
 				return res.status(401).json({ error: "Token expired" });
 			}
-			return res.status(401).json({ error: "Token is invalid" });
+			if (err.name === "JsonWebTokenError") {
+				return res.status(401).json({ error: "Invalid token" });
+			}
+			return res.status(401).json({ error: "Authentication error" });
 		}
 
-		// ✅ Logs para depuração
-		console.log("Decoded Token:", decoded);
-
-		// Define as informações do usuário na requisição
+		// ✅ Define as informações do usuário na requisição
 		req.userId = decoded.id;
 		req.userName = decoded.name;
 
-		// Chama o próximo middleware apenas após definir req.userId e req.userName
+		// ✅ Apenas para modo de desenvolvimento
+		if (process.env.NODE_ENV === "development") {
+			console.log(`✅ Token válido para o usuário: ${decoded.name}`);
+		}
+
+		// ✅ Passa para o próximo middleware
 		return next();
 	});
 }

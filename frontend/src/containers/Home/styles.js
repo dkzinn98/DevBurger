@@ -20,13 +20,26 @@ export const Banner = styled.div`
 `;
 
 export const Container = styled.section`
-    background: 
-    url(${Background}),
-    linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
-    height: 300px;
+    position: relative;
+    background: url(${Background});
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
+    min-height: 100vh;
+    width: 100%;
 
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(240, 240, 240, 0.4); /* Cinza mais claro com transparência */
+        z-index: 0;
+    }
 `;
 
 export const Content = styled.div`
-
+    padding-bottom: 70px;
 `;

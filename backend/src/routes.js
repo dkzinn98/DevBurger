@@ -17,7 +17,7 @@ routes.post("/users", UserController.store);
 routes.post("/sessions", SessionController.store);
 import authMiddleware from "./app/middlewares/auth.js";
 
-routes.use(authMiddleware); // passando o authMiddleware para todas as rotas que tiver abaixo!
+routes.use(authMiddleware); // passando o authMiddleware para todas as rotas que estiver abaixo!
 
 routes.post("/products", upload.single("file"), ProductController.store);
 routes.get("/products", ProductController.index);
