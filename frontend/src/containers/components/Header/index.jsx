@@ -31,6 +31,7 @@ export function Header() {
 						<HeaderLink to="/" $isActive={pathname === "/"}>
 							Home
 						</HeaderLink>
+						{/* biome-ignore lint/style/useSelfClosingElements: <explanation> */}
 						<hr></hr>
 						<HeaderLink to="/cardapio" $isActive={pathname === "/cardapio"}>
 							Cardápio
