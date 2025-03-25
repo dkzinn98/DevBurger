@@ -1,9 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
 
+import { Cart } from "../containers/Cart";
 import { Home } from "../containers/Home";
 import { Login } from "../containers/Login";
 import { Menu } from "../containers/Menu";
 import { Register } from "../containers/Register";
+import { Footer } from "../containers/components/Footer";
 import { Header } from "../containers/components/Header";
 
 export const router = createBrowserRouter([
@@ -12,7 +14,8 @@ export const router = createBrowserRouter([
 		element: (
 			<>
 				<Header />
-				<Home />,
+				<Home />
+				<Footer />
 			</>
 		),
 	},
@@ -35,5 +38,10 @@ export const router = createBrowserRouter([
 				<Menu />,
 			</>
 		),
+	},
+
+	{
+		path: "/carrinho",
+		element: <Cart />,
 	},
 ]);
