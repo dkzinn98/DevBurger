@@ -4,11 +4,17 @@ import { Home } from "../containers/Home";
 import { Login } from "../containers/Login";
 import { Menu } from "../containers/Menu";
 import { Register } from "../containers/Register";
+import { Header } from "../containers/components/Header";
 
 export const router = createBrowserRouter([
 	{
 		path: "/",
-		element: <Home />,
+		element: (
+			<>
+				<Header />
+				<Home />,
+			</>
+		),
 	},
 
 	{
@@ -23,6 +29,11 @@ export const router = createBrowserRouter([
 
 	{
 		path: "/cardapio",
-		element: <Menu />,
+		element: (
+			<>
+				<Header />
+				<Menu />,
+			</>
+		),
 	},
 ]);
