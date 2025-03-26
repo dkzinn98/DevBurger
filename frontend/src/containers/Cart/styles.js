@@ -15,7 +15,7 @@ export const Container = styled.div`
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(240, 240, 240, 0.4); /* Cinza mais claro com transparência */
+        background: rgba(240, 240, 240, 0.4);
         z-index: 0;
     }
 
